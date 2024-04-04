@@ -1,0 +1,169 @@
+:root{
+    --base-font : 'Josefin Sans', 'Poppins' !important;
+    --base-color : linear-gradient(120deg, rgb(60, 161, 255), rgb(80, 255, 188)) !important;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--base-font);
+}
+
+.heading{
+    letter-spacing: 5px;
+    font-size: 25px;
+    color: rgb(0, 92, 145);
+}
+
+.mkBtn, .shBtn{
+    padding: 10px 20px;
+}
+
+.active{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    font-weight: bold;
+}
+
+.mkBtn:hover, .shBtn:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn{
+    border: none !important;
+}
+
+.btn-danger{
+    background-image: linear-gradient(270deg, rgb(255, 61, 168), rgb(0, 92, 145));
+}
+
+.btn-success{
+    background-image: linear-gradient(160deg, rgb(61, 255, 148), rgb(0, 92, 145));
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 500px !important;
+    height: 300px !important;
+    color: white !important;
+    background-color: rgb(233,236,239) !important;
+    border: none !important;
+    perspective: 1000px !important;
+
+    
+}
+
+.card-inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.front, .back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(45deg, rgb(34, 255, 170), rgb(28, 51, 255));
+    padding: 20px 30px;
+    border-radius: 15px;
+    z-index: 1;
+    backface-visibility: hidden;
+}
+
+
+.map-img{
+    width: 100%;
+    position: absolute;
+    opacity: 0.3;
+    filter: grayscale(100%);
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.chip{
+    margin-top: -10px !important;
+    width: 80px !important;
+}
+
+.card-no{
+    margin-top: 10px !important;
+    font-size: 35px;
+}
+
+.card-holder{
+   margin-top: -10px !important;
+    font-size: 12px;
+}
+
+.card-holder-name{
+    font-size: 20px;
+    margin-top: -18px !important;
+}
+
+.hotline{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-top: -10px !important;
+}
+
+.bar{
+    background-color: rgb(26, 26, 26);
+    height: 60px;
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: -10px !important;
+}
+
+.ptn{
+   margin-top: 10px;
+   width: 100%;
+}
+
+.cvv{
+    background-color: white;
+    color: black;
+    position: relative !important;
+    margin-top: 16px;
+    margin-left: -25px;
+    line-height: 35px !important;
+    text-align: center;
+    font-size: 18px;
+    font-style: italic !important;
+}
+
+.signature{
+    font-size: 12px;
+}
+
+.card-text{
+    font-size: 10px;
+}
+
+.card-bottom{
+    margin-top: 20px !important;
+}
+
+.back{
+    transform: rotateY(180deg) !important;
+}
+
+.card:hover .card-inner{
+    transform: rotateY(-180deg) !important;
+    cursor: pointer;
+}
+
+.btn-danger:hover, .btn-success:hover{
+    opacity: 0.7;
+    transition: 0.5s;
+}
