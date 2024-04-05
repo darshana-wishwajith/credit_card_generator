@@ -2,9 +2,9 @@
 include "mysql_connector.php";
 
 if (empty($_POST['hName2'])) {
-    echo ("Please enter your name with initials");
+    echo ("1");
 } else if (empty($_POST["password2"])) {
-    echo ("Please enter a password for your card");
+    echo ("2");
 } else {
 
     $hName2 = $_POST["hName2"];
@@ -30,6 +30,6 @@ if (empty($_POST['hName2'])) {
 
         echo ($response2);
     } else {
-        echo ("Your card not found!");
+        echo ("3");
     }
 }

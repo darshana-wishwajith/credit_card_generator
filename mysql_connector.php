@@ -9,7 +9,7 @@
 
                 $hostname = "127.0.0.1";
                 $username = "root";
-                $password = "password";
+                $password = "Darshana@1234";
                 $database = "credit_card_db";
                 $port = "3306";
 

@@ -224,6 +224,8 @@
     <p class="text-center" style="font-size: 12px;">Darshana Wishwajith @ 2024</p>
     <script src="script.js"></script>
     <script src="bootstrap/bootstrap.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                                    
 </body>
 
 </html>

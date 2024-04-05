@@ -78,51 +78,92 @@ generateBtn.onclick = function(){
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){
             let response = request.responseText;
-            let jsonObj = JSON.parse(response);
 
-            let cardType = jsonObj.type_name;
-            let cardNo = jsonObj.card_no;
-            let exDate = jsonObj.exipre_date;
-            let holderName = jsonObj.holder_name;
-            let cardNetwork = jsonObj.network_name;
-            let cvv_num = jsonObj.cvv;
-
-            document.getElementById("ct").textContent = cardType;
-
-            for(let i = 0; i < cardNo.length; i += 4){
-                document.getElementById("cn_group_"+i).textContent = cardNo.substring(i, i+4);
+            if(response == "1"){
+                swal("Error", "Please select a card type", "error");
             }
-
-            let exd = new Date(exDate);
-
-            let month = exd.getMonth();
-            let year = exd.getFullYear();
-
-            if(parseInt(month) < 10){
-                month = parseInt(month) + 1;
-                month = month.toString();
-                month = "0"+month;
+            else if(response == "2"){
+                swal("Error", "Invalid card type", "error");
             }
-
-            year = year.toString().substring(2,4);
-
-            document.getElementById("month").textContent = month;
-            document.getElementById("year").textContent = year;
-
-            document.getElementById("holder").textContent = holderName;
-
-            if(cardNetwork == 'Visa'){
-                document.getElementById("network_logo").src="images/visa.png";
-                document.getElementById("network_logo2").src="images/visa.png";
+            else if(response == "3"){
+                swal("Error", "Please select a card network", "error");
+            }
+            else if(response == "4"){
+                swal("Error", "Invalid card network", "error");
+            }
+            else if(response == "5"){
+                swal("Error", "Please enter your name with initials", "error");
+            }
+            else if(response == "6"){
+                swal("Error", "Holder's name is too short", "error");
+            }
+            else if(response == "7"){
+                swal("Error", "Invalid CVV number", "error");
+            }
+            else if(response == "8"){
+                swal("Error", "Something went wrong in expire date", "error");
+            }
+            else if(response == "9"){
+                swal("Error", "plase select an expire date", "error");
+            }
+            else if(response == "10"){
+                swal("Error", "Please enter a password for your card", "error");
+            }
+            else if(response == "11"){
+                swal("Error", "Your password is too short", "error");
+            }
+            else if(response == "12"){
+                swal("Error", "Somthing went wrong! please try again", "error");
             }
             else{
-                document.getElementById("network_logo").src="images/master_logo_2.png";
-                document.getElementById("network_logo2").src="images/master_logo_2.png";
-            }
-            
-            document.getElementById("cvv_num").textContent = cvv_num;
 
-            
+                let jsonObj = JSON.parse(response);
+
+                let cardType = jsonObj.type_name;
+                let cardNo = jsonObj.card_no;
+                let exDate = jsonObj.exipre_date;
+                let holderName = jsonObj.holder_name;
+                let cardNetwork = jsonObj.network_name;
+                let cvv_num = jsonObj.cvv;
+
+                document.getElementById("ct").textContent = cardType;
+
+                for(let i = 0; i < cardNo.length; i += 4){
+                    document.getElementById("cn_group_"+i).textContent = cardNo.substring(i, i+4);
+                }
+
+                let exd = new Date(exDate);
+
+                let month = exd.getMonth();
+                let year = exd.getFullYear();
+
+                if(parseInt(month) < 10){
+                    month = parseInt(month) + 1;
+                    month = month.toString();
+                    month = "0"+month;
+                }
+
+                year = year.toString().substring(2,4);
+
+                document.getElementById("month").textContent = month;
+                document.getElementById("year").textContent = year;
+
+                document.getElementById("holder").textContent = holderName;
+
+                if(cardNetwork == 'Visa'){
+                    document.getElementById("network_logo").src="images/visa.png";
+                    document.getElementById("network_logo2").src="images/visa.png";
+                }
+                else{
+                    document.getElementById("network_logo").src="images/master_logo_2.png";
+                    document.getElementById("network_logo2").src="images/master_logo_2.png";
+                }
+                
+                document.getElementById("cvv_num").textContent = cvv_num;
+
+                swal("Your Card is ready to use","Card generation completed successfully!","success");
+
+            }
         }
     }
 
@@ -147,50 +188,64 @@ searchBtn.onclick = function(){
     request2.onreadystatechange = function(){
         if(request2.readyState == 4 && request2.status == 200){
             let response2 = request2.responseText;
-            let jsonObj2 = JSON.parse(response2);
 
-            let cardType = jsonObj2.type_name;
-            let cardNo = jsonObj2.card_no;
-            let exDate = jsonObj2.exipre_date;
-            let holderName = jsonObj2.holder_name;
-            let cardNetwork = jsonObj2.network_name;
-            let cvv_num = jsonObj2.cvv;
-
-            document.getElementById("ct").textContent = cardType;
-
-            for(let i = 0; i < cardNo.length; i += 4){
-                document.getElementById("cn_group_"+i).textContent = cardNo.substring(i, i+4);
+            if(response2 == "1"){
+                swal("Error", "Please enter your name with initials", "error");
             }
-
-            let exd = new Date(exDate);
-
-            let month = exd.getMonth();
-            let year = exd.getFullYear();
-
-            if(parseInt(month) < 10){
-                month = parseInt(month) + 1;
-                month = month.toString();
-                month = "0"+month;
+            else if(response2 == "2"){
+                swal("Error", "Please enter a password for your card", "error");
             }
-
-            year = year.toString().substring(2,4);
-
-            document.getElementById("month").textContent = month;
-            document.getElementById("year").textContent = year;
-
-            document.getElementById("holder").textContent = holderName;
-
-            if(cardNetwork == 'Visa'){
-                document.getElementById("network_logo").src="images/visa.png";
-                document.getElementById("network_logo2").src="images/visa.png";
+            else if(response2 == "3"){
+                swal("Error", "Your card not found!", "error");
             }
             else{
-                document.getElementById("network_logo").src="images/master_logo_2.png";
-                document.getElementById("network_logo2").src="images/master_logo_2.png";
-            }
-            
-            document.getElementById("cvv_num").textContent = cvv_num;
 
+                let jsonObj2 = JSON.parse(response2);
+
+                let cardType = jsonObj2.type_name;
+                let cardNo = jsonObj2.card_no;
+                let exDate = jsonObj2.exipre_date;
+                let holderName = jsonObj2.holder_name;
+                let cardNetwork = jsonObj2.network_name;
+                let cvv_num = jsonObj2.cvv;
+
+                document.getElementById("ct").textContent = cardType;
+
+                for(let i = 0; i < cardNo.length; i += 4){
+                    document.getElementById("cn_group_"+i).textContent = cardNo.substring(i, i+4);
+                }
+
+                let exd = new Date(exDate);
+
+                let month = exd.getMonth();
+                let year = exd.getFullYear();
+
+                if(parseInt(month) < 10){
+                    month = parseInt(month) + 1;
+                    month = month.toString();
+                    month = "0"+month;
+                }
+
+                year = year.toString().substring(2,4);
+
+                document.getElementById("month").textContent = month;
+                document.getElementById("year").textContent = year;
+
+                document.getElementById("holder").textContent = holderName;
+
+                if(cardNetwork == 'Visa'){
+                    document.getElementById("network_logo").src="images/visa.png";
+                    document.getElementById("network_logo2").src="images/visa.png";
+                }
+                else{
+                    document.getElementById("network_logo").src="images/master_logo_2.png";
+                    document.getElementById("network_logo2").src="images/master_logo_2.png";
+                }
+                
+                document.getElementById("cvv_num").textContent = cvv_num;
+
+                swal("A card with your details was found", "Your Card is ready to use", "success");
+            }
         }
     }
 

@@ -2,37 +2,37 @@
     include "mysql_connector.php";
 
     if($_POST['cardType'] == 0){
-        echo("Please select a card type");
+        echo("1");
     }
     else if($_POST['cardType'] < 0 || $_POST['cardType'] > 2){
-        echo("Invalid card type");
+        echo("2");
     }
     else if($_POST['cardNetwork'] == 0){
-        echo("Please select a card network");
+        echo("3");
     }
     else if($_POST['cardNetwork'] < 0 || $_POST['cardNetwork'] > 2){
-        echo("Invalid card network");
+        echo("4");
     }
     else if(empty($_POST['hName'])){
-        echo("Please enter your name with initials");
+        echo("5");
     }
     else if(strlen($_POST['hName']) < 6){
-        echo("Holder's name is too short");
+        echo("6");
     }
     else if($_POST["cvv"] > 999 || $_POST["cvv"] < 100 || strlen($_POST["cvv"]) < 3){
-        echo("Invalid CVV number");
+        echo("7");
     }
     else if(!isset($_POST['exDate'])){
-        echo("Something went wrong in expire date");
+        echo("8");
     }
     else if(empty($_POST['exDate'])){
-        echo("plase select an expire date");
+        echo("9");
     }
     else if(empty($_POST["password"])){
-        echo("Please enter a password for your card");
+        echo("10");
     }
     else if(strlen($_POST["password"]) < 4){
-        echo("Your password is too short");
+        echo("11");
     }
     else{
         
@@ -55,7 +55,7 @@
         $cn_num = $cn_rs->num_rows;
 
         if($cn_num > 0){
-            echo("Somthing went wrong! please try again");
+            echo("12");
         }
         else{
 
